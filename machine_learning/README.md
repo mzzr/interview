@@ -6,7 +6,7 @@
 
 #### 问题3：Xgboost和GBDT和lightGBM区别
 
-#### 问题4: EM算法步骤，为什么Q(z)为后验概率(下界)，E-step(更新Q(z)),M-step(更新估计参数)
+#### 问题4：EM算法步骤，为什么Q(z)为后验概率(下界)，E-step(更新Q(z)),M-step(更新估计参数)
 
 
 --- To be selected ---
