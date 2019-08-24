@@ -3,9 +3,9 @@ Feel free to send a PR!**
 
 ---
 ## Contents
-- [Algorithm]()
+- [Algorithm](https://github.com/mzzr/interview/blob/master/algorithm)
 - [Computer vision](https://github.com/donnyyou/cv-interview)
-- [NLP]()
+- [NLP](https://github.com/mzzr/interview/blob/master/nlp)
 - [Operating system]()
 - [Network]()
 - [Cpp]()
