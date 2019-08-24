@@ -1,12 +1,136 @@
 ## 常见算法题模版（Python）
 
+## standard IO和文件IO
+```python
+s = input() # python3, return a 'str'
+
+f = open("filepath", "r")
+for line in f:
+  pass
+```
+
 ## 数据结构
 ### 字符串
 - O(n)找最长回文子串（马拉车算法）
+一般面试写出枚举中心点的O(n^2)算法即可，下面是O(n)的Manacher算法
+```python
+def longestPalindrome(self, s):
+        # convert 'aabba' -> '#a#a#b#b#a#'
+        ss = "#"
+        for c in s:
+            ss += c + "#"
+        
+        # p[i]代表以i为中心的回文子串的最大半边长度(如b#a#b以a为中心对应半边长度值为3)
+        # mx表示当前发现的回文串中的最大终点
+        # center表示当前找到的终点最大的回文串中心点
+        n = len(ss)
+        center = mx = 0
+        p = [1] * n
+        
+        for i in range(n):
+            if mx > i:
+                p[i] = min(p[2*center-i], mx - i)
+            while i - p[i] >= 0 and i + p[i] < n and ss[i-p[i]] == ss[i+p[i]]:
+                p[i] += 1
+            if i + p[i] > mx:
+                center = i
+                mx = i + p[i]
+                
+        center = p.index(max(p))
+        width = p[center] - 1
+        return ss[center-width+1:center+width:2]
+```
 - KMP
-- Trie
-- AC自动机
+```python
+src = "abababcababababab"
+pattern = "abababa"
 
+
+def getNext(pattern):
+    Next = [-1]
+    j, k = 0, -1
+    while j < len(pattern):
+        if k == -1 or pattern[j] == pattern[k]:
+            j += 1
+            k += 1
+            if j == len(pattern) or pattern[j] != pattern[k]:
+                Next.append(k)
+            else:
+                Next.append(Next[k])
+        else:
+            k = Next[k]
+    return Next
+
+def KMP(src, pattern):
+    i = j = 0
+    ans = []
+    Next = getNext(pattern)
+    
+    while i < len(src):
+        if j == -1 or src[i] == pattern[j]:
+            i += 1
+            j += 1
+            if j == len(pattern):
+                ans.append(i-j)
+                j = Next[j]
+        else:
+            j = Next[j]
+    return ans
+
+print(KMP(src, pattern))
+```
+
+- Trie
+```python
+# 定义
+T = lambda: collections.defaultdict(T)
+self.trie = T()
+
+#建树
+for w in words:
+  functools.reduce(dict.__getitem__, w, self.trie)['#'] = True
+```
+
+- AC自动机
+```python
+# LC1032
+class StreamChecker():
+
+    def __init__(self, words):
+        T = lambda: collections.defaultdict(T)
+        self.trie = T()
+        for w in words: functools.reduce(dict.__getitem__, w, self.trie)['#'] = True
+        q = collections.deque()
+        q.append(self.trie)
+        root = self.trie
+        root["fail"] = root
+        while q:
+            node = q.popleft()
+            for c in node:
+                if c == "#" or c == "fail": continue
+                if node == root:
+                    node[c]["fail"] = root
+                else:
+                    t = node["fail"]
+                    while True:
+                        if c in t:
+                            node[c]["fail"] = t[c]
+                            break
+                        if t == root:
+                            node[c]["fail"] = root
+                            break
+                        else:
+                            t = t["fail"]
+                q.append(node[c])
+        self.cur = root
+    def query(self, letter):
+        while letter not in self.cur and self.cur != self.trie:
+            self.cur = self.cur["fail"]
+        if letter in self.cur:
+            self.cur = self.cur[letter]
+            return '#' in self.cur or '#' in self.cur["fail"]
+        return False
+```
 
 ### 链表
 - 定义
