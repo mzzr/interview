@@ -155,3 +155,50 @@ class StreamChecker():
 ### 动态规划
 ### 分治
 ### 排序
+
+### 数学
+- 两种素数筛法和一种概率筛法
+```python
+mark = [1] * n
+for i in range(2, int(math.sqrt(n)) + 1):
+    if mark[i]:
+        for j in range(2*i, n, i):
+            mark[j] = 0
+```
+
+```python
+# O(n)筛法
+nums = [1] * M
+primes = []
+
+for i in range(2, M):
+    if nums[i]:
+        primes.append(i)
+
+    for prime in primes:
+        if i * prime >= M: break
+        nums[i*prime] = 0
+        if i % prime == 0: break
+```
+
+```python
+# 随机算法-素数判定(Miller-Rabin算法) 
+def isPrime(n):
+    def mr(a, p):
+        if a == p: return True
+        k, q = 0, p-1
+        while q & 1 == 0:
+            q >>= 1
+            k += 1
+        v = pow(a, q, p)
+        if v == 1 or v == p-1:
+            return True
+        while k:
+            v = v*v % p
+            if v == p-1:
+                return True
+            k -= 1
+        return False
+    if n < 2: return False
+    return all(mr(a, n) for a in [2, 7, 61])
+```
