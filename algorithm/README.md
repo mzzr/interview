@@ -149,6 +149,19 @@ class StreamChecker():
 - 二部图匹配（匈牙利算法）
 
 ### 并查集
+```python
+# 只使用路径压缩find,union的最坏复杂度是lgn级别的
+# [参考](https://oi-wiki.org/ds/dsu/#_5)
+class DSU:
+    def __init__(self, N):
+        self.par = range(N)
+    def find(self, x):
+        if self.par[x] != x:
+            self.par[x] = self.find(self.par[x])
+        return self.par[x]
+    def union(self, x, y):
+        self.par[self.find(x)] = self.find(y)
+```
 
 ## 算法
 ### 二分
