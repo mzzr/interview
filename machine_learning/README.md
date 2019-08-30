@@ -8,6 +8,8 @@
 
 #### 问题4：EM算法步骤，为什么Q(z)为后验概率(下界)，E-step(更新Q(z)),M-step(更新估计参数)
 
+#### 问题5：解释常见优化算法
+[link](https://zhuanlan.zhihu.com/p/32230623)
 
 --- To be selected ---
 SGD，从泰勒一阶展开角度；
