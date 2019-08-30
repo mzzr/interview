@@ -92,6 +92,7 @@ for w in words:
 ```
 
 - AC自动机
+[有空还是来记一下原理](https://www.luogu.org/blog/3383669u/qiang-shi-tu-xie-ac-zi-dong-ji)
 ```python
 # LC1032
 class StreamChecker():
