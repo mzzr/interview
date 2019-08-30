@@ -166,6 +166,15 @@ class DSU:
 ## 算法
 ### 二分
 ### 动态规划
+- 状压DP中枚举子集的方法
+```python
+x = S # 用S的二进制表示一个集合
+subset = []
+while x:
+  subset.append(x)
+  x = (x-1) & S
+subset.append(0)
+```
 ### 分治
 ### 排序
 
