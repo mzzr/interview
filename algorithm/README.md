@@ -1,5 +1,10 @@
 ## 常见算法题模版（Python）
 
+## 最值
+```python
+float('-inf')
+```
+
 ## standard IO和文件IO
 ```python
 s = input() # python3, return a 'str'
