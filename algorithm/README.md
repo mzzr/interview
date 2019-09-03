@@ -171,6 +171,8 @@ class DSU:
 
 ## 算法
 ### 二分
+- [套路总结](https://www.cnblogs.com/grandyang/p/6854825.html)
+
 ### 动态规划
 - 状压DP中枚举子集的方法
 ```python
