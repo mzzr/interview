@@ -1,1 +1,2 @@
-
+- [Action Verbs for Resume](https://github.com/mzzr/interview/blob/master/soft_skills/Action-Verbs-for-Resumes.pdf)
+- [Performance Reviews](https://www.tinypulse.com/blog/sk-useful-phrases-performance-reviews)
