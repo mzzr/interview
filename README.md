@@ -13,3 +13,4 @@ Feel free to send a PR!**
 - [Network](https://github.com/mzzr/interview/blob/master/network)
 - [Cpp](https://github.com/mzzr/interview/blob/master/cpp)
 - [Soft skills](https://github.com/mzzr/interview/blob/master/soft_skills)
+- [Brain Teasers](https://github.com/mzzr/interview/blob/master/brain_teasers)
