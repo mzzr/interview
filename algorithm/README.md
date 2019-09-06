@@ -232,3 +232,9 @@ def isPrime(n):
     if n < 2: return False
     return all(mr(a, n) for a in [2, 7, 61])
 ```
+
+
+### 杂七杂八
+- 迷宫生成算法(感觉掌握dfs即可)
+  - [ref1](https://github.com/theJollySin/mazelib/blob/master/docs/MAZE_GEN_ALGOS.md)
+  - [wikipedia](https://en.wikipedia.org/wiki/Maze_generation_algorithm)
