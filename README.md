@@ -12,5 +12,6 @@ Feel free to send a PR!**
 - [Operating System](https://github.com/mzzr/interview/blob/master/operating_system)
 - [Network](https://github.com/mzzr/interview/blob/master/network)
 - [Cpp](https://github.com/mzzr/interview/blob/master/cpp)
+- [Python](https://github.com/mzzr/interview/blob/master/python)
 - [Soft Skills](https://github.com/mzzr/interview/blob/master/soft_skills)
 - [Brain Teasers](https://github.com/mzzr/interview/blob/master/brain_teasers)
