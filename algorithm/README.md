@@ -233,6 +233,10 @@ for i in range(2, M):
 # 随机算法-素数判定(Miller-Rabin算法) 
 # http://www.matrix67.com/blog/archives/234
 # 这东西太难记了...
+# 定理 1 ：若 p 是质数，则对于任意 0<a<p ，有 a^(p−1)≡1 (mod  p) 。
+# 引理 2 ：若 p 是质数，且 x^2≡1 (mod  p)，那么 x≡1 (mod  p) 和 x≡p−1 (mod  p)中的一个成立。
+# 这个筛法tm的就是在同时测试上面两个东西
+# https://blog.csdn.net/qq_39972971/article/details/82317212
 def isPrime(n):
     def mr(a, p):
         if a == p: return True
