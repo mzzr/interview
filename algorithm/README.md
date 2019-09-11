@@ -231,6 +231,8 @@ for i in range(2, M):
 
 ```python
 # 随机算法-素数判定(Miller-Rabin算法) 
+# http://www.matrix67.com/blog/archives/234
+# 这东西太难记了...
 def isPrime(n):
     def mr(a, p):
         if a == p: return True
