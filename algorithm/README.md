@@ -187,6 +187,24 @@ subset.append(0)
 ### 排序
 
 ### 数学
+- 逆元
+```python
+inv(a) = a^(p-2) (mod p) # 快速幂求
+```
+
+- 快速幂
+```python
+def power(a, n):
+    ans = 1
+    base = a
+    while n:
+        if n % 2 == 1:
+            ans *= base
+        base *= base
+        n >>= 1
+    return ans
+```
+
 - 两种素数筛法和一种概率筛法
 ```python
 mark = [1] * n
