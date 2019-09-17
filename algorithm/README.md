@@ -150,6 +150,40 @@ class StreamChecker():
 ### 二叉树
 - 一些没那么直观的递归题目
 
+- Morris周游
+```python
+def morris(root):
+  predecessor = None
+        while root:
+            # If there is a left child
+            # then compute the predecessor.
+            # If there is no link predecessor.right = root --> set it.
+            # If there is a link predecessor.right = root --> break it.
+            if root.left:       
+                # Predecessor node is one step left 
+                # and then right till you can.
+                predecessor = root.left
+                while predecessor.right and predecessor.right != root:
+                    predecessor = predecessor.right
+
+                # set link predecessor.right = root
+                # and go to explore left subtree
+                if predecessor.right is None:
+                    predecessor.right = root
+                    root = root.left
+                # break link predecessor.right = root
+                # link is broken : time to change subtree and go right
+                else:
+                    visit(root)  # !!!
+                    predecessor.right = None
+                    root = root.right
+            # If there is no left child
+            # then just go right.
+            else:
+                visit(root)  # !!!
+                root = root.right
+```
+
 ### 图
 - 拓扑排序
 - 二部图匹配（匈牙利算法）
