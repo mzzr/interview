@@ -186,6 +186,46 @@ def morris(root):
 
 ### 图
 - 拓扑排序
+```python
+# Use leetcode 269 as an example.
+def alienOrder(self, words: List[str]) -> str:
+    n = len(words)
+    order = collections.defaultdict(int)
+    for word in words: # error here!
+        for c in word:
+            order[c] = 0 
+
+    graph = collections.defaultdict(dict)
+    for i in range(1, n):
+        pre, cur = words[i-1], words[i]
+        l = min(len(pre), len(cur))
+        for j in range(0, l):
+            if cur[j] != pre[j]:
+                if cur[j] not in graph[pre[j]]: # error here!
+                    graph[pre[j]][cur[j]] = 1
+                    order[cur[j]] += 1
+                break
+            if j == l-1 and len(pre) > l:
+                return ""
+    # topological sort
+    q = collections.deque()
+    for node in order:
+        if order[node] == 0:
+            q.append(node)
+    ans = ""
+    while q:
+        c = q[0]
+        q.popleft()
+        ans += c
+        for i in graph[c]:
+            order[i] -= 1
+            if order[i] == 0:
+                q.append(i)
+    if max(order.values()) != 0:
+        return ""
+    else:
+        return ans
+```
 - 二部图匹配（匈牙利算法）
 
 ### 并查集
