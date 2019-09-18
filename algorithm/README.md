@@ -228,6 +228,26 @@ def alienOrder(self, words: List[str]) -> str:
 ```
 - 二部图匹配（匈牙利算法）
 
+- 堆优化的dijkstra
+```python
+## 感觉还是不是很对，边太多咋办
+def dijkstra(edges):
+  graph = collections.defaultdict(list)
+  for u, v, w in edges:
+      graph[u].append((v, w))
+
+  pq = [(0, K)]
+  dist = {}
+  while pq:
+      d, node = heapq.heappop(pq)
+      if node in dist: continue
+      dist[node] = d
+      for nei, d2 in graph[node]:
+          if nei not in dist:
+              heapq.heappush(pq, (d+d2, nei))
+  return dist
+```
+
 ### 并查集
 ```python
 # 只使用路径压缩find,union的最坏复杂度是lgn级别的
